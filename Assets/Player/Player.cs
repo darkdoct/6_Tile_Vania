@@ -26,19 +26,6 @@ public class Player : MonoBehaviour {
     {
         float controlThrow = CrossPlatformInputManager.GetAxis("Horizontal"); // value between -1 and +1
 
-        if (CrossPlatformInputManager.GetButton("Horizontal"))
-        {
-            MoveHorizontally(controlThrow);
-        }
-
-        if (CrossPlatformInputManager.GetButtonUp("Horizontal"))
-        {
-            playerRigidBody.velocity = Vector2.zero;
-        }
-    }
-
-    private void MoveHorizontally(float controlThrow)
-    {
         float existingVerticalSpeed = playerRigidBody.velocity.y;
         Vector2 playerVelocity = new Vector2(controlThrow * speed, existingVerticalSpeed);
         playerRigidBody.velocity = playerVelocity;
