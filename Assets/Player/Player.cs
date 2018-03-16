@@ -16,20 +16,40 @@ public class Player : MonoBehaviour {
 	}
 	
 	// Update is called once per frame
-	void Update () {
+	void Update ()
+    {
+        ProcessHorizontal();
+        ProcessJumps();
+    }
+
+    private void ProcessHorizontal()
+    {
         float controlThrow = CrossPlatformInputManager.GetAxis("Horizontal"); // value between -1 and +1
 
-        if (CrossPlatformInputManager.GetButton("Horizontal")) // reports every frame
+        if (CrossPlatformInputManager.GetButton("Horizontal"))
         {
-            float existingVerticalSpeed = playerRigidBody.velocity.y;
-            Vector2 playerVelocity = new Vector2(controlThrow * speed, existingVerticalSpeed);
-            playerRigidBody.velocity = playerVelocity;
+            MoveHorizontally(controlThrow);
         }
 
+        if (CrossPlatformInputManager.GetButtonUp("Horizontal"))
+        {
+            playerRigidBody.velocity = Vector2.zero;
+        }
+    }
+
+    private void MoveHorizontally(float controlThrow)
+    {
+        float existingVerticalSpeed = playerRigidBody.velocity.y;
+        Vector2 playerVelocity = new Vector2(controlThrow * speed, existingVerticalSpeed);
+        playerRigidBody.velocity = playerVelocity;
+    }
+
+    private void ProcessJumps()
+    {
         if (CrossPlatformInputManager.GetButtonDown("Jump")) // Down so once per press
         {
             Vector2 jumpVelocityAdded = new Vector2(0f, jumpSpeed);
             playerRigidBody.velocity += jumpVelocityAdded;
         }
-	}
+    }
 }
