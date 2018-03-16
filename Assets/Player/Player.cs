@@ -21,7 +21,8 @@ public class Player : MonoBehaviour {
 
         if (CrossPlatformInputManager.GetButton("Horizontal")) // reports every frame
         {
-            Vector2 playerVelocity = new Vector2(controlThrow * speed, 0f);
+            float existingVerticalSpeed = playerRigidBody.velocity.y;
+            Vector2 playerVelocity = new Vector2(controlThrow * speed, existingVerticalSpeed);
             playerRigidBody.velocity = playerVelocity;
         }
 
