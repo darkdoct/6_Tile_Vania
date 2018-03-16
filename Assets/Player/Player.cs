@@ -16,7 +16,6 @@ public class Player : MonoBehaviour {
 	// Update is called once per frame
 	void Update () {
         float controlThrow = CrossPlatformInputManager.GetAxis("Horizontal"); // value between -1 and +1
-        print(controlThrow);
 
         if (CrossPlatformInputManager.GetButton("Horizontal")) // reports every frame
         {
