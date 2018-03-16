@@ -6,6 +6,8 @@ using UnityEngine;
 public class Player : MonoBehaviour {
 
     [SerializeField] float speed = 5f;
+    [SerializeField] float jumpSpeed = 5f; // todo consider Vector2
+
     Rigidbody2D playerRigidBody;
 
 	// Use this for initialization
@@ -21,6 +23,12 @@ public class Player : MonoBehaviour {
         {
             Vector2 playerVelocity = new Vector2(controlThrow * speed, 0f);
             playerRigidBody.velocity = playerVelocity;
+        }
+
+        if (CrossPlatformInputManager.GetButtonDown("Jump")) // Down so once per press
+        {
+            Vector2 jumpVelocityAdded = new Vector2(0f, jumpSpeed);
+            playerRigidBody.velocity += jumpVelocityAdded;
         }
 	}
 }

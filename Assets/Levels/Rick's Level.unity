@@ -1258,20 +1258,10 @@ Prefab:
       propertyPath: m_RootOrder
       value: 2
       objectReference: {fileID: 0}
-    - target: {fileID: 61577942456973258, guid: 777c0ace120f340e89f8e59f207c86e4,
+    - target: {fileID: 114561919134577534, guid: 777c0ace120f340e89f8e59f207c86e4,
         type: 2}
-      propertyPath: m_EdgeRadius
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 61577942456973258, guid: 777c0ace120f340e89f8e59f207c86e4,
-        type: 2}
-      propertyPath: m_Size.x
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 61577942456973258, guid: 777c0ace120f340e89f8e59f207c86e4,
-        type: 2}
-      propertyPath: m_Size.y
-      value: 1
+      propertyPath: speed
+      value: 10
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 777c0ace120f340e89f8e59f207c86e4, type: 2}
