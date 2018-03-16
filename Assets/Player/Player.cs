@@ -12,6 +12,12 @@ public class Player : MonoBehaviour {
 	
 	// Update is called once per frame
 	void Update () {
-		
+        print(CrossPlatformInputManager.GetAxis("Horizontal"));
+
+        if (CrossPlatformInputManager.GetButton("Horizontal")) // reports every frame
+        {
+            print("One of the Horizontal inputs pressed");
+
+        }
 	}
 }
